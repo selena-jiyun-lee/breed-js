@@ -1,4 +1,3 @@
-// import { Modal } from 'bootstrap';
 import api from '../api.js';
 import Main from './Main.js';
 import BreedModal from './BreedModal.js';
@@ -24,6 +23,7 @@ export default function App($app) {
 			const subBreedNames = this.state.breedsList[name];
 			let subBreeds = [];
 
+			// If there are subBreeds, Call the subBreeds data
 			if (subBreedNames.length > 0) {
 				const promises = subBreedNames.map(async subBreed => {
 					const {
@@ -40,16 +40,18 @@ export default function App($app) {
 				images,
 				subBreeds,
 			};
-		} catch (error) {}
+		} catch (error) {
+			throw new Error(error);
+		}
 	};
 
 	const main = new Main({
 		$app,
 		initialState: this.breedsList,
 		onClick: async id => {
+			// When list item is clicked, Open the modal
 			try {
 				const selectedBreed = await this.getBreed(id);
-
 				this.setState({ ...this.state, selectedBreed });
 			} catch (error) {
 				throw new Error(error);
