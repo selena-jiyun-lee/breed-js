@@ -45,8 +45,8 @@ export default function BreedModal({ $app, initialState, onClose, onFavoriteClic
 		const $modalHeader = document.createElement('div');
 		$modalHeader.className = 'modal-header';
 		$modalHeader.innerHTML = `
-				<h5 class="modal-title">${name}</h5>
-				<button class="btn-favorite btn btn-outline-danger" type="button" data-breed="${name}">${
+				<h5 class="modal-title text-capitalize">${name}</h5>
+				<button class="btn-favorite btn btn-outline-danger mx-2" type="button" data-breed="${name}">${
 			isFavorite ? filledHeart : emptyHeart
 		}</button>
 				<button class="btn-close" data-bs-dismiss="modal"></button>`;
