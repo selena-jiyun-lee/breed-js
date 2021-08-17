@@ -4,17 +4,22 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "open http://localhost:5500/index.html",
+		"dev": "parcel ./index.html",
+		"prebuild": "npx rimraf build",
+		"build": "parcel build --public-url ./ ./index.html --experimental-scope-hoisting --out-dir build",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@babel/runtime": "^7.15.3",
 		"axios": "^0.21.1",
-		"bootstrap": "^5.1.0"
+		"bootstrap": "^5.1.0",
+		"parcel-bundler": "^1.12.5"
 	},
 	"devDependencies": {
+		"@babel/plugin-transform-runtime": "^7.15.0",
 		"@babel/preset-env": "^7.15.0",
 		"prettier": "^2.3.2"
 	}
